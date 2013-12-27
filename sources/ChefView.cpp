@@ -12,6 +12,7 @@
 #include <MenuItem.h>
 #include <ListItem.h>
 #include <TranslationUtils.h>
+#include <FindDirectory.h>
 
 #include "AboutWindow.h"
 #include "DelCatWindow.h"
@@ -96,10 +97,8 @@ ChefView::ChefView(const BRect &rect)
 	
 	fHeaderFont.SetSize(be_plain_font->Size() + 2);
 	
-	app_info info;
-	be_app->GetAppInfo(&info);
 	BPath path;
-	BPath(&info.ref).GetParent(&path);
+	find_directory(B_USER_SETTINGS_DIRECTORY, &path);
 	BString dbpath(path.Path());
 	dbpath << "/recipes.db";
 	
