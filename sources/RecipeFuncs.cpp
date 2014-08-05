@@ -1,6 +1,12 @@
 #include "RecipeFuncs.h"
-#include <ctype.h>
+
+#include <Locker.h>
 #include <Entry.h>
+
+#include <ctype.h>
+#include <debugger.h>
+
+#include "CppSQLite3.h"
 
 CppSQLite3DB gDatabase;
 static BLocker sDBLock;
